@@ -20,7 +20,7 @@ video{
 .container{
   position: relative;
   display: inline-block;
-  margin: 70px;
+  margin: 170;
   border-radius: 20px;
   width: 600px;
   height: 400px;
@@ -28,12 +28,6 @@ video{
   border-style: solid;
   border-color: #fddb45;
   border-width: 1px;
-  
-  
-  
-  
-  
-
 }
 
 img{
@@ -114,21 +108,22 @@ img{
 }
 
 audio{
-  width:400;
+  width:200;
   filter: invert();
   height: 10px;
   opacity: .3;
-  margin-top: 130px;
+  margin-top: 260px;
 
+	
 }
 h2{
   padding: 50px;
   text-decoration: underline;
   font-family: minisystem;
   display: inline;
-  position: relative;
+  position: center;
   font-size: 20px;
-  color: #fddb45;
+  color: #c545fd;
 }
 
 h3{
@@ -138,6 +133,6 @@ h3{
   font-family: minisystem;
   position: relative;
   font-size: 15px;
-  color:#fddb45;
+  color:#c545fd;
   
 }
