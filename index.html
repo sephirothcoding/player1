@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Custom Internet Radio Player</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <script src="radio.js" async defer></script>
+    
+        <video src="https://vimeo.com/564874609" height="110%" width="100%" muted loop autoplay></video>
+        <div class="container">
+          <h2>ADR.FM</h2>
+          <marquee behavior="scroll" direction="right"> <h3>South Florida's Electronic Dance</h3></marquee>
+          
+          <!--Change thumbnail of channel-->
+          
+          <img src="https://cdn-profiles.tunein.com/s232826/images/logoq.png">
+        <audio controls>
+          
+          <!--Address of your source stream-->
+          
+          <source src="http://patmos.cdnstream.com/proxy/aamppcre?mp=/stream2&DIST=TuneIn&TGT=TuneIn&maxServers=2&partnertok=eyJhbGciOiJIUzI1NiIsImtpZCI6InR1bmVpbiIsInR5cCI6IkpXVCJ9.eyJ0cnVzdGVkX3BhcnRuZXIiOnRydWUsImlhdCI6MTYyOTM3NTk5MywiaXNzIjoidGlzcnYifQ.Vhga4fvVN5ald7K4D1YbBFhoSxpJjiseasSa7CJRadU" type="audio/mpeg">
+      </audio>
+     </div>
+   
+<!--Secound container-->
+   
+    <div class="container2">
+      <h2>Mix 24/7 EDM</h2>
+      <marquee behavior="scroll" direction="right"> <h3>Your Pulse on today's EDM</h3></marquee>
+      
+      <img src="https://cdn-profiles.tunein.com/s240917/images/logoq.jpg?t=151750">
+    <audio controls>
+      
+      <source src="http://radio.streemlion.com:3590/stream" type="audio/mpeg">
+  </audio>
+</div>
+
+    </body>
+<!-- partial -->
+  
+</body>
+</html>
