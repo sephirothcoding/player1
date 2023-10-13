@@ -1,25 +1,4 @@
-@keyframes pulse {
-            0% {
-                transform: scale(1);
-                background-color: #3498db;
-            }
-            50% {
-                transform: scale(1.2);
-                background-color: #e74c3c;
-            }
-            100% {
-                transform: scale(1);
-                background-color: #3498db;
-            }
-        }
 
-        .music-beat {
-            width: 100px;
-            height: 100px;
-            background-color: #3498db;
-            border-radius: 50%;
-            animation: pulse 1s infinite;
-        }
 
 
 *{
