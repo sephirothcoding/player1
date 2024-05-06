@@ -16,19 +16,10 @@
     height: 100vh;
   }
 
-  .radio-container {
-    position: relative;
-    width: 640px; /* Dimensiunea containerului păstrată */
-    height: 480px; /* Dimensiunea containerului păstrată */
-  }
-
   .radio-player {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 320px; /* 50% mai mic */
-    height: 360px; /* redimensionat pentru a fi mai mic */
+    position: relative;
+    width: 640px;
+    height: 480px;
     background-image: url('https://xatimg.com/image/vsu315nIm9dd.jpg');
     background-size: cover;
     background-position: center;
@@ -51,6 +42,37 @@
     background-color: rgba(255, 255, 255, 0.1);
   }
 
+  .avatar {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .avatar:hover {
+    animation: avatarMove 1s infinite alternate;
+    cursor: url('https://xatimg.com/image/lJmgtzeYCH3s.png'), auto;
+  }
+
+  @keyframes avatarMove {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(10px);
+    }
+  }
+
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
   .radio-info {
     position: absolute;
     top: 20px;
@@ -68,8 +90,9 @@
 
   .menu {
     position: absolute;
-    top: 20px; /* mutat mai sus */
-    left: 20px; /* mutat mai la stanga */
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -93,7 +116,7 @@
 
   .listeners {
     position: absolute;
-    top: calc(100% - 40px); /* mutat mai jos */
+    top: calc(50% + 80px);
     left: 20px;
     color: red;
   }
@@ -102,24 +125,42 @@
 </head>
 <body>
 
-<div class="radio-container">
-  <div class="radio-player">
-    <div class="radio-info">
-      <h2>Nume Radio</h2>
-    </div>
-    <div class="menu">
-      <a href="#">Chatul meu</a>
-      <a href="#">Site-ul meu</a>
-      <a href="#">Facebook</a>
-      <a href="#">Instagram</a>
-    </div>
-    <div class="listeners" id="listeners">Ascultători: 0</div>
-    <audio controls autoplay>
-      <source src="linkul-streamului-radio-aici" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
+<div class="radio-player">
+  <div class="gif-overlay"></div>
+  <div class="avatar">
+    <img src="https://xatimg.com/image/qHNgPvFkBtVV.png" alt="Avatar">
   </div>
+  <audio controls autoplay>
+    <source src="linkul-streamului-radio-aici" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <div class="radio-info">
+    <h2>Nume Radio</h2>
+  </div>
+  <div class="menu">
+    <a href="#">Chatul meu</a>
+    <a href="#">Site-ul meu</a>
+    <a href="#">Facebook</a>
+    <a href="#">Instagram</a>
+  </div>
+  <div class="listeners" id="listeners">Ascultători: 0</div>
 </div>
+
+<script>
+  // Simulăm numărul de ascultători
+  let numberOfListeners = 0;
+
+  // Actualizăm numărul de ascultători și afișăm textul
+  function updateListeners() {
+    numberOfListeners++; // Incrementăm numărul de ascultători (doar pentru demonstrație)
+
+    // Actualizăm textul cu numărul de ascultători
+    document.getElementById('listeners').innerText = `Ascultători: ${numberOfListeners}`;
+  }
+
+  // Apelăm funcția pentru a afișa numărul inițial de ascultători
+  updateListeners();
+</script>
 
 </body>
 </html>
