@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radio Player</title>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .radio-player {
+    max-width: 300px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .radio-player:hover {
+    transform: scale(1.05);
+  }
+
+  .radio-player audio {
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+  }
+
+  .radio-player audio::-webkit-media-controls-panel {
+    background-color: transparent;
+    border-radius: 10px;
+  }
+
+  .radio-player audio::-webkit-media-controls-play-button,
+  .radio-player audio::-webkit-media-controls-pause-button {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+  }
+
+  .radio-player audio:hover::-webkit-media-controls-play-button,
+  .radio-player audio:hover::-webkit-media-controls-pause-button {
+    width: 60px;
+    height: 60px;
+    opacity: 1;
+  }
+
+  .radio-player audio::-webkit-media-controls-play-button::after {
+    content: "\25B6";
+    font-size: 24px;
+    line-height: 60px;
+    color: #fff;
+    text-align: center;
+  }
+
+  .radio-player audio::-webkit-media-controls-pause-button::after {
+    content: "\2590\2590";
+    font-size: 20px;
+    line-height: 50px;
+    color: #fff;
+    text-align: center;
+  }
+
+  .radio-player audio::-webkit-media-controls-play-button:focus,
+  .radio-player audio::-webkit-media-controls-pause-button:focus {
+    outline: none;
+  }
+
+  .radio-player audio::-webkit-media-controls-current-time-display,
+  .radio-player audio::-webkit-media-controls-time-remaining-display {
+    color: #000;
+  }
+
+  .radio-player audio::-webkit-media-controls-seek-back-button,
+  .radio-player audio::-webkit-media-controls-seek-forward-button {
+    display: none;
+  }
+
+  .volume-controls {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    margin-top: 10px;
+  }
+
+  .volume-controls button {
+    background-color: rgba(0, 0, 0, 0.6);
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .volume-controls button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .volume-controls button:focus {
+    outline: none;
+  }
+
+  .chat-button,
+  .site-button {
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .chat-button a,
+  .site-button a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  .chat-button a:hover,
+  .site-button a:hover {
+    background-color: #0056b3;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="radio-player">
+  <audio controls autoplay>
+    <source src="linkul-streamului-radio-aici" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <div class="volume-controls">
+    <button onclick="changeVolume('-')">-</button>
+    <button onclick="changeVolume('+')">+</button>
+  </div>
+  <div class="chat-button">
+    <a href="#">Chatul Meu</a>
+  </div>
+  <div class="site-button">
+    <a href="#">Site-ul Meu</a>
+  </div>
+</div>
+
+<script>
+  function changeVolume(direction) {
+    var player = document.querySelector('audio');
+    var volume = player.volume;
+    if (direction === '-') {
+      volume -= 0.1;
+    } else {
+      volume += 0.1;
+    }
+    if (volume < 0) {
+      volume = 0;
+    } else if (volume > 1) {
+      volume = 1;
+    }
+    player.volume = volume;
+  }
+</script>
+
+</body>
+</html>
