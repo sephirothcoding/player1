@@ -26,37 +26,11 @@
     overflow: hidden;
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
   }
 
-  .radio-player:hover .water-effect {
-    animation: water 1s linear infinite;
-  }
-
-  .water-effect {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: radial-gradient(circle, rgba(0,0,255,0.3) 5%, rgba(0,0,255,0) 40%);
-    background-position: center;
-    background-size: 300% 300%;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  @keyframes water {
-    0% {
-      background-position: 0 0;
-    }
-    50% {
-      background-position: 400% 0;
-    }
-    100% {
-      background-position: 0 0;
-    }
-  }
-
-  .radio-player:hover .water-effect {
-    opacity: 1;
+  .radio-player:hover {
+    transform: scale(1.02);
   }
 
   .radio-player audio {
@@ -68,16 +42,79 @@
     background-color: rgba(255, 255, 255, 0.1);
   }
 
+  .avatar {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #e040fb; /* mov lila */
+    border-radius: 50%;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .avatar:hover {
+    transform: rotate(360deg);
+  }
+
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .radio-info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #fff;
+    z-index: 1;
+  }
+
+  .radio-info h2 {
+    margin: 0;
+    font-size: 24px;
+  }
+
+  .radio-info .buttons {
+    margin-top: 10px;
+  }
+
+  .radio-info .buttons a {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+  }
+
+  .radio-info .buttons a:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
 </style>
 </head>
 <body>
 
 <div class="radio-player">
-  <div class="water-effect"></div>
+  <div class="avatar">
+    <img src="https://via.placeholder.com/60x60" alt="Avatar">
+  </div>
   <audio controls autoplay>
     <source src="linkul-streamului-radio-aici" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
+  <div class="radio-info">
+    <h2>Nume Radio</h2>
+    <div class="buttons">
+      <a href="#">Chatul meu</a>
+      <a href="#">Site-ul meu</a>
+    </div>
+  </div>
 </div>
 
 </body>
