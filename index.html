@@ -16,8 +16,17 @@
     height: 100vh;
   }
 
-  .radio-player {
+  .radio-container {
     position: relative;
+    width: 640px; /* Dimensiunea containerului păstrată */
+    height: 480px; /* Dimensiunea containerului păstrată */
+  }
+
+  .radio-player {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 320px; /* 50% mai mic */
     height: 360px; /* redimensionat pentru a fi mai mic */
     background-image: url('https://xatimg.com/image/vsu315nIm9dd.jpg');
@@ -27,7 +36,6 @@
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    margin-top: 20px; /* mutat mai sus */
   }
 
   .radio-player:hover {
@@ -94,21 +102,23 @@
 </head>
 <body>
 
-<div class="radio-player">
-  <div class="radio-info">
-    <h2>Nume Radio</h2>
+<div class="radio-container">
+  <div class="radio-player">
+    <div class="radio-info">
+      <h2>Nume Radio</h2>
+    </div>
+    <div class="menu">
+      <a href="#">Chatul meu</a>
+      <a href="#">Site-ul meu</a>
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+    </div>
+    <div class="listeners" id="listeners">Ascultători: 0</div>
+    <audio controls autoplay>
+      <source src="linkul-streamului-radio-aici" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
   </div>
-  <div class="menu">
-    <a href="#">Chatul meu</a>
-    <a href="#">Site-ul meu</a>
-    <a href="#">Facebook</a>
-    <a href="#">Instagram</a>
-  </div>
-  <div class="listeners" id="listeners">Ascultători: 0</div>
-  <audio controls autoplay>
-    <source src="linkul-streamului-radio-aici" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
 </div>
 
 </body>
