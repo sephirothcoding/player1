@@ -55,6 +55,7 @@
 
   .avatar:hover {
     animation: avatarMove 1s infinite alternate;
+    cursor: url('https://xatimg.com/image/lJmgtzeYCH3s.png'), auto;
   }
 
   @keyframes avatarMove {
@@ -113,11 +114,25 @@
     background-color: rgba(0, 0, 0, 0.8);
   }
 
+  .gif-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://xatimg.com/image/oFB1HrxfCj5c.gif');
+    background-size: cover;
+    background-position: center;
+    pointer-events: none;
+    z-index: 2;
+  }
+
 </style>
 </head>
 <body>
 
 <div class="radio-player">
+  <div class="gif-overlay"></div>
   <div class="avatar">
     <img src="https://xatimg.com/image/qHNgPvFkBtVV.png" alt="Avatar">
   </div>
