@@ -48,14 +48,22 @@
     right: 20px;
     width: 60px;
     height: 60px;
-    background-color: #e040fb; /* mov lila */
     border-radius: 50%;
     overflow: hidden;
     transition: all 0.3s ease;
   }
 
   .avatar:hover {
-    transform: rotate(360deg);
+    animation: avatarMove 1s infinite alternate;
+  }
+
+  @keyframes avatarMove {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(10px);
+    }
   }
 
   .avatar img {
