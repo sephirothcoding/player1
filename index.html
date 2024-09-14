@@ -1,166 +1,190 @@
-<html lang="en" data-lt-installed="true"><head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Radio Player</title>
-<style>
-  
-  body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio Player</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
-  .radio-player {
-    position: relative;
-    width: 640px;
-    height: 480px;
-    background-image: url('https://xatimg.com/image/JdvEt3Jp6EZt.png');
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-  }
+        .radio-player {
+            position: relative;
+            width: 640px;
+            height: 480px;
+            background-image: url('https://xatimg.com/image/HUz0uIOAff8c.png');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            animation: fadeIn 2s ease-in-out;
+        }
 
-  .radio-player:hover {
-    transform: scale(1.02);
-  }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
 
-  .radio-player audio {
-    width: 60%;
-    height: 100%;
-    outline: none;
-    border: none;
-    border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.1);
-  }
+        .radio-player:hover {
+            transform: scale(1.02);
+        }
 
-  .avatar {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    overflow: hidden;
-    transition: all 0.3s ease;
-  }
+        .radio-player audio {
+            width: 60%;
+            height: 100%;
+            outline: none;
+            border: none;
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s ease;
+        }
 
-  .avatar:hover {
-    animation: avatarMove 1s infinite alternate;
-    cursor: url('https://xatimg.com/image/lJmgtzeYCH3s.png'), auto;
-  }
+        .radio-player audio:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
 
-  @keyframes avatarMove {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(10px);
-    }
-  }
+        .radio-info {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: #e83a3a;
+            z-index: 1;
+            animation: pulse 2s infinite;
+        }
 
-  .avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.7;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
 
-  .radio-info {
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    color: #e83a3a;
-    z-index: 1;
-  }
+        .radio-info h2 {
+            margin: 0;
+            font-size: 24px;
+        }
 
-  .radio-info h2 {
-    margin: 0;
-    font-size: 24px;
-  }
+        .menu {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            z-index: 1;
+            animation: slideIn 1s ease-out;
+        }
 
-  .menu {
-    position: absolute;
-    top: 50%;
-    left: 20px;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    z-index: 1;
-  }
+        @keyframes slideIn {
+            from {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
 
-  .menu a {
-    display: block;
-    margin-bottom: 10px;
-    padding: 8px 16px;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
+        .menu a {
+            display: block;
+            margin-bottom: 10px;
+            padding: 8px 16px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
 
-  .menu a:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-  }
+        .menu a:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
 
-  .listeners {
-    position: absolute;
-    top: calc(50% + 100px);
-    left: 20px;
-    color: red;
-  }
+        .listeners {
+            position: absolute;
+            top: calc(50% + 100px);
+            left: 20px;
+            color: red;
+            font-size: 18px;
+            font-weight: bold;
+            animation: fadeInOut 2s infinite;
+        }
 
-</style>
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .radio-player {
+                width: 90%;
+                height: auto;
+            }
+
+            .radio-player audio {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
 
 <div class="radio-player">
-  <div class="gif-overlay"><div id="extwaiokist" style="display:none" v="fljme" q="5c78d3e8" c="638.0" i="644" u="14.36" s="04272401" sg="svr_09102316-ga_04272401-bai_04252415" d="0" w="false" e="}" a="2" m="BMe=" vn="3spel"><div id="extwaigglbit" style="display:none" v="fljme" q="5c78d3e8" c="638.0" i="644" u="14.36" s="04272401" sg="svr_09102316-ga_04272401-bai_04252415" d="0" w="false" e="}" a="2" m="BMe="></div></div></div>
-  <div class="avatar">
-    <img src="https://xatimg.com/image/qHNgPvFkBtVV.png" alt="Avatar">
-  </div>
-  <audio controls="" autoplay="">
-    <source src="https://boxstream.danceradiouk.com/stream/1/" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
-  <div class="radio-info">
-    <h2></h2>
-  </div>
-  <div class="menu">
-    <a href="#">Chatul meu</a>
-    <a href="#">Site-ul meu</a>
-    <a href="#">Facebook</a>
-    <a href="#">Instagram</a>
-  </div>
-  <div class="listeners" id="listeners">Ascultători: 1</div>
+    <audio controls autoplay>
+        <source src="https://boxstream.danceradiouk.com/stream/1/" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="radio-info">
+        <h2>Radio Station</h2>
+    </div>
+    <div class="menu">
+        <a href="#">Chatul meu</a>
+        <a href="#">Site-ul meu</a>
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+    </div>
+    <div class="listeners" id="listeners">Ascultători: 1</div>
 </div>
 
 <script>
-  // Simulăm numărul de ascultători
-  let numberOfListeners = 0;
+    let numberOfListeners = 1;
 
-  // Actualizăm numărul de ascultători și afișăm textul
-  function updateListeners() {
-    numberOfListeners++; // Incrementăm numărul de ascultători (doar pentru demonstrație)
+    function updateListeners() {
+        numberOfListeners++;
+        document.getElementById('listeners').innerText = `Ascultători: ${numberOfListeners}`;
+    }
 
-    // Actualizăm textul cu numărul de ascultători
-    document.getElementById('listeners').innerText = `Ascultători: ${numberOfListeners}`;
-  }
-
-  // Apelăm funcția pentru a afișa numărul inițial de ascultători
-  updateListeners();
+    setInterval(updateListeners, 5000); // Actualizează numărul de ascultători la fiecare 5 secunde
 </script>
 
-
-
-</body></html>
+</body>
+</html>
